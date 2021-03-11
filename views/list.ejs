@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem Geral de Consultas</title>
+</head>
+<body>
+    <h1>Consultas</h1>
+    <hr>
+    <form action="/searchresult" method="GET">
+        <input type="search" name="busca" id="busca" placeholder="Digite seu E-mail ou CPF">
+        <button>Pesquisar</button>
+    </form>
+    <hr>
+    <div class="container">    
+        <% appos.forEach(appo => { %>
+            <h1><%= appo.description %></h1>
+            <h4>Paciente: <%= appo.name %></h4>
+            <h4>E-mail: <%= appo.email %></h4>
+            <h4>CPF: <%= appo.cpf %></h4>
+            <hr>
+        <% }) %>
+    </div>  
+</body>
+</html>

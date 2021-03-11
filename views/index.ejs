@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="calendar">
+
+    </div>
+</body>
+<script>//Implementando o fullCalendar na View
+
+    let element = document.getElementById('calendar')
+    let calendar = new FullCalendar.Calendar(element, {//Criando novo elemento(calendario) a ser renderizado dentro do elemento(div) criada
+        initialView: 'dayGridMonth',//Informando modo de visualizacao padrao
+        locale: 'pt-br',//Setando idioma do calendario
+        events: 'getcalendar',//Pegando os dados(get) na rota criada, dados esses que estao no array
+        eventClick: function(info){//eventClick=>Dispara um evento(callback function) quando clicamos 
+            window.location.href='/event/'+info.event.id//Utilizado para enviar o usuario para outra pagina
+        }
+    })
+
+    calendar.render()
+
+</script>
+</html>
